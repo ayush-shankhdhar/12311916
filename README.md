@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🚀 CampusHub Notify  
+### Affordmed Campus Hiring Evaluation – Full Stack Submission
 
-## Getting Started
+CampusHub Notify is a modern real-time campus notification dashboard built using **Next.js** and **Material UI**.  
+The application helps students track important campus updates such as placements, academic results, and events through an optimized and responsive notification system.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+# ✨ Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🔔 Notification Dashboard
+- Real-time notification feed
+- Clean and modern UI
+- Categorized notifications
+- Smooth user experience
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## ⚡ Priority Smart Inbox
+- Displays top urgent notifications
+- Optimized ranking using **MinHeap**
+- Priority order:
+  - Placement > Result > Event
+- Real-time priority refresh support
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🎯 Advanced Filtering
+- Filter by notification type
+- Read / Unread filtering
+- Placement specific filtering
+- Dynamic notification updates
 
-## Learn More
+## 📱 Responsive Design
+- Desktop optimized
+- Tablet friendly
+- Mobile responsive layout
 
-To learn more about Next.js, take a look at the following resources:
+## 🎨 UI/UX
+- Built entirely using **Material UI**
+- Dark modern dashboard design
+- Interactive cards and transitions
+- Production-style layout
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# 🛠️ Tech Stack
 
-## Deploy on Vercel
+| Technology | Usage |
+|---|---|
+| Next.js | Frontend Framework |
+| React.js | UI Library |
+| Material UI | Styling |
+| Axios | API Handling |
+| JavaScript | Logic & State Handling |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# 📂 Folder Structure
+
+```txt
+project-root/
+│
+├── app/
+├── components/
+├── utils/
+├── public/
+├── screenshots/
+│   ├── dashboard.png
+│   ├── priority-inbox.png
+│   ├── placement-filter.png
+│   └── read-only-filter.png
+│
+├── package.json
+├── README.md
+└── notification_system_design.md
