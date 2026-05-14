@@ -3,10 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint"
+    "dev:be": "cd ROLLNUMBER/backend && npm run dev",
+    "dev:fe": "cd ROLLNUMBER/frontend && npm run dev",
+    "dev": "concurrently -k \"npm:dev:be\" \"npm:dev:fe\""
   },
   "dependencies": {
     "next": "16.2.6",
@@ -15,6 +14,7 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
+    "concurrently": "^9.2.1",
     "eslint": "^9",
     "eslint-config-next": "16.2.6",
     "tailwindcss": "^4"
