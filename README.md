@@ -9,64 +9,101 @@ The application helps students track important campus updates such as placements
 # ✨ Features
 
 ## 🔔 Notification Dashboard
-- Real-time notification feed
-- Clean and modern UI
-- Categorized notifications
-- Smooth user experience
+- **Real-Time Feeds**: Live websocket notifications push directly to students without page reloads.
+- **Modern Glassmorphism**: Extremely premium dark UI with elegant Material UI components.
+- **Categorized System**: Notifications color-coded and grouped into Placement, Result, and Event categories.
 
 ## ⚡ Priority Smart Inbox
-- Displays top urgent notifications
-- Optimized ranking using **MinHeap**
-- Priority order:
-  - Placement > Result > Event
-- Real-time priority refresh support
+- **Top Urgent Rankings**: Smart feed displaying only the most critical notifications.
+- **Custom MinHeap Engine**: Optimized $O(N \log K)$ sorting algorithm running in the backend.
+- **Fixed Weight Tiering**: Strict algorithmic order: `Placement > Result > Event`, perfectly balanced with real-time recency.
 
 ## 🎯 Advanced Filtering
-- Filter by notification type
-- Read / Unread filtering
-- Placement specific filtering
-- Dynamic notification updates
+- **Live Category Filters**: Instantly jump between all alerts, placements, results, or events.
+- **Read Status Management**: Toggle between read and unread statuses.
+- **Dynamic Count Badges**: The navbar dynamically updates unread item counts in real-time.
 
 ## 📱 Responsive Design
-- Desktop optimized
-- Tablet friendly
-- Mobile responsive layout
+- **Desktop Optimized**: Permanent glassmorphic left sidebar navigation.
+- **Mobile & Tablet Friendly**: Collapse-and-swipe drawer menus to optimize visual real-estate on small viewports.
 
-## 🎨 UI/UX
-- Built entirely using **Material UI**
-- Dark modern dashboard design
-- Interactive cards and transitions
-- Production-style layout
+---
+
+# 🎨 UI & Application Screenshots
+
+Here are the visual captures of the CampusHub Notify dashboard and priority engine running live:
+
+### 🖥️ Live Dashboard (All Notifications)
+![Notification Dashboard Preview](screenshots/Screenshot%202026-05-14%20at%206.24.52%E2%80%AFPM.png)
+
+### ⚡ Priority Inbox (MinHeap Engine Optimized)
+![Priority Smart Inbox Preview](screenshots/Screenshot%202026-05-14%20at%206.26.34%E2%80%AFPM.png)
+
+### 🔍 Live Toast Alerts & Category Filtering
+![Toasts & Categorized Alerts Preview](screenshots/Screenshot%202026-05-14%20at%206.25.20%E2%80%AFPM.png)
+
+### 📱 Smooth Mobile & Empty State Interface
+![Mobile Adaptive Layout Preview](screenshots/Screenshot%202026-05-14%20at%206.25.39%E2%80%AFPM.png)
 
 ---
 
 # 🛠️ Tech Stack
 
 | Technology | Usage |
-|---|---|
-| Next.js | Frontend Framework |
-| React.js | UI Library |
-| Material UI | Styling |
-| Axios | API Handling |
-| JavaScript | Logic & State Handling |
+| :--- | :--- |
+| **Next.js 15 (App Router)** | Modern Progressive Web Frontend Framework |
+| **Node.js / Express** | Scalable Rest API and Websocket Streaming Backend |
+| **Mongoose / MongoDB** | Data Persistence with Custom Compound B-Tree Indexes |
+| **Socket.IO** | Bi-directional Event Streams for Real-Time Updates |
+| **Material UI (MUI)** | Premium Dark-themed Component Styling System |
+| **Axios** | Universal API Data Transport Client |
+| **TypeScript** | End-to-End Strict Type Safety and Module Integrity |
 
 ---
 
 # 📂 Folder Structure
 
-```txt
-project-root/
+The project is architectured following professional decoupled standards:
+
+```text
+ROLLNUMBER/
+├── backend/                 # Node.js & Express API
+│   ├── src/
+│   │   ├── config/          # Database Connections & ENV Schemas
+│   │   ├── controllers/     # API Endpoint Request Routing Controllers
+│   │   ├── models/          # Mongoose Models with Compound Indexes
+│   │   ├── realtime/        # Socket.IO Namespace Room Builders
+│   │   ├── services/        # Core Business Layer (MinHeap, Priority Scoring)
+│   │   └── utils/           # Unified API Response Wrappers
+│   └── package.json
 │
-├── app/
-├── components/
-├── utils/
-├── public/
-├── screenshots/
-│   ├── dashboard.png
-│   ├── priority-inbox.png
-│   ├── placement-filter.png
-│   └── read-only-filter.png
+├── frontend/                # Next.js 15 Web Client
+│   ├── src/
+│   │   ├── app/             # Page Views (Dashboard feeds & Smart Inbox)
+│   │   ├── components/      # Shared UI elements (Navbar, Sidebar, Cards)
+│   │   ├── hooks/           # Custom Socket.io Client Listeners
+│   │   ├── services/        # API Client and Frontend log dispatchers
+│   │   └── types/           # Shared Component Property Interfaces
+│   └── package.json
 │
-├── package.json
-├── README.md
-└── notification_system_design.md
+├── logging-middleware/      # Shared Custom NPM Logging Package
+│   ├── src/
+│   │   ├── logger.ts        # Logger Engine with Memory Flushing
+│   │   └── transport.ts     # Axios stream failures with Backoff Retries
+│   └── package.json
+│
+├── screenshots/             # Embedded Application View Previews
+└── notification_system_design.md # Detailed Engineering Stage Reports
+```
+
+---
+
+# 🚀 How to Run the Platform
+
+To start both Front-end and Back-end simultaneously with a single developer command, simply go to the **Root Workspace Folder** (`afford/`) and run:
+
+```bash
+# Auto-boots Backend (Port 4000) & Frontend (Port 3000) concurrently
+npm run dev
+```
+
