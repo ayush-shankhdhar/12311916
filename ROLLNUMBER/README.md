@@ -1,88 +1,108 @@
-# Campus Notification System (Hiring Evaluation Package)
+# 🚀 CampusHub Notify  
+### Affordmed Campus Hiring Evaluation – Full Stack Submission
 
-A production-grade, highly-scalable campus notification platform delivering real-time alerts, priority algorithmic tiering, and decoupled event-driven pipelines.
+CampusHub Notify is a modern real-time campus notification dashboard built using **Next.js** and **Material UI**.  
+The application helps students track important campus updates such as placements, academic results, and events through an optimized and responsive notification system.
 
 ---
 
-## 📦 Repository Components
+# ✨ Features
+
+## 🔔 Notification Dashboard
+- **Real-Time Feeds**: Live websocket notifications push directly to students without page reloads.
+- **Modern Glassmorphism**: Extremely premium dark UI with elegant Material UI components.
+- **Categorized System**: Notifications color-coded and grouped into Placement, Result, and Event categories.
+
+## ⚡ Priority Smart Inbox
+- **Top Urgent Rankings**: Smart feed displaying only the most critical notifications.
+- **Custom MinHeap Engine**: Optimized $O(N \log K)$ sorting algorithm running in the backend.
+- **Fixed Weight Tiering**: Strict algorithmic order: `Placement > Result > Event`, perfectly balanced with real-time recency.
+
+## 🎯 Advanced Filtering
+- **Live Category Filters**: Instantly jump between all alerts, placements, results, or events.
+- **Read Status Management**: Toggle between read and unread statuses.
+- **Dynamic Count Badges**: The navbar dynamically updates unread item counts in real-time.
+
+## 📱 Responsive Design
+- **Desktop Optimized**: Permanent glassmorphic left sidebar navigation.
+- **Mobile & Tablet Friendly**: Collapse-and-swipe drawer menus to optimize visual real-estate on small viewports.
+
+---
+
+# 🎨 UI & Application Screenshots
+
+Here are the visual captures of the CampusHub Notify dashboard and priority engine running live:
+
+### 🖥️ Live Dashboard (All Notifications)
+![Notification Dashboard Preview](screenshots/dashboard.png)
+
+### ⚡ Priority Inbox (MinHeap Engine Optimized)
+![Priority Smart Inbox Preview](screenshots/priority.png)
+
+### 🔍 Live Toast Alerts & Category Filtering
+![Toasts & Categorized Alerts Preview](screenshots/filtering.png)
+
+### 📱 Smooth Mobile & Empty State Interface
+![Mobile Adaptive Layout Preview](screenshots/mobile.png)
+
+---
+
+# 🛠️ Tech Stack
+
+| Technology | Usage |
+| :--- | :--- |
+| **Next.js 15 (App Router)** | Modern Progressive Web Frontend Framework |
+| **Node.js / Express** | Scalable Rest API and Websocket Streaming Backend |
+| **Mongoose / MongoDB** | Data Persistence with Custom Compound B-Tree Indexes |
+| **Socket.IO** | Bi-directional Event Streams for Real-Time Updates |
+| **Material UI (MUI)** | Premium Dark-themed Component Styling System |
+| **Axios** | Universal API Data Transport Client |
+| **TypeScript** | End-to-End Strict Type Safety and Module Integrity |
+
+---
+
+# 📂 Folder Structure
+
+The project is architectured following professional decoupled standards:
 
 ```text
 ROLLNUMBER/
-├── logging-middleware/          # Isolated Node module with batching, retry & external audit hooks
-├── notification_app_be/         # Node/Express API backed by Mongoose, Socket.IO & mock workers
-├── notification_app_fe/         # Next.js 15 App Router built with strict Material-UI design
-├── notification_system_design.md# Architectural documentation (Stage 1 - 7)
-└── README.md                    # This system handbook
+├── backend/                 # Node.js & Express API
+│   ├── src/
+│   │   ├── config/          # Database Connections & ENV Schemas
+│   │   ├── controllers/     # API Endpoint Request Routing Controllers
+│   │   ├── models/          # Mongoose Models with Compound Indexes
+│   │   ├── realtime/        # Socket.IO Namespace Room Builders
+│   │   ├── services/        # Core Business Layer (MinHeap, Priority Scoring)
+│   │   └── utils/           # Unified API Response Wrappers
+│   └── package.json
+│
+├── frontend/                # Next.js 15 Web Client
+│   ├── src/
+│   │   ├── app/             # Page Views (Dashboard feeds & Smart Inbox)
+│   │   ├── components/      # Shared UI elements (Navbar, Sidebar, Cards)
+│   │   ├── hooks/           # Custom Socket.io Client Listeners
+│   │   ├── services/        # API Client and Frontend log dispatchers
+│   │   └── types/           # Shared Component Property Interfaces
+│   └── package.json
+│
+├── logging-middleware/      # Shared Custom NPM Logging Package
+│   ├── src/
+│   │   ├── logger.ts        # Logger Engine with Memory Flushing
+│   │   └── transport.ts     # Axios stream failures with Backoff Retries
+│   └── package.json
+│
+├── screenshots/             # Embedded Application View Previews
+└── notification_system_design.md # Detailed Engineering Stage Reports
 ```
 
 ---
 
-## 🚀 Setup & Installation
+# 🚀 How to Run the Platform
 
-### Prerequisites
-- Node.js v20+
-- MongoDB Community Server (v6.0+)
-- NPM v10+
+To start both Front-end and Back-end simultaneously with a single developer command, simply go to the **Root Workspace Folder** (`afford/`) and run:
 
-### 1. Build Logging Shared Package
 ```bash
-cd logging-middleware
-npm install
-npm run build
-```
-
-### 2. Initialize Express Backend API
-```bash
-cd ../notification_app_be
-npm install
-# Copy example env and configure variables
-cp .env.example .env
+# Auto-boots Backend (Port 4000) & Frontend (Port 3000) concurrently
 npm run dev
 ```
-*Backend spins up on `http://localhost:4000`.*
-
-### 3. Initialize Next.js Frontend
-```bash
-cd ../notification_app_fe
-npm install --legacy-peer-deps
-npm run dev
-```
-*Frontend boots exclusively on `http://localhost:3000`.*
-
----
-
-## 📈 Architectural Highlights
-
-### Core Logging Protocol
-Built as a first-class custom middleware library. Absolutely zero `console.log` usages are present. Logs contain unified payloads mapping **STACK**, **LEVEL**, and **PACKAGE** dimensions before buffering and delivering via Axios with full exponential backoff retries to the designated evaluative auditing hub.
-
-### The O(N log K) Priority Smart-Inbox
-The Priority Inbox invokes our custom `MinHeap` Utility. When clients request their primary priority notifications, rather than performing expensive Database-level global sorts, the service collects target rows and sifts them through the Heap in linearithmic time. 
-
-### Real-Time Delivery Design
-WebSocket channels bind incoming queries mapping student keys directly to virtual rooms.
-Immediate notifications bypass HTTP round-trips, streaming directly through Socket.io into active browsers, triggering React Snackbar alerts instantly.
-
----
-
-## 🖼️ Screenshots & Media Hub
-
-### Desktop Preview
-<!-- [DESKTOP PREVIEW PLACEHOLDER] -->
-*Provides optimized viewport layout showing global sidebar overlay and wide notifications cards grid.*
-
-### Mobile Layout Preview
-<!-- [MOBILE PREVIEW PLACEHOLDER] -->
-*Collapsible swipe-out MUI Drawers and stacked chips preserving legible Typography scales on compact screens.*
-
-### Postman Execution Flow
-<!-- [POSTMAN PREVIEW PLACEHOLDER] -->
-*Standard HTTP status verification (201 Created, 202 Accepted for Queue offloads) mapping API contracts.*
-
-### External Service Logging Stream
-<!-- [LOGGING PREVIEW PLACEHOLDER] -->
-*Axios-buffered logs tracking Request Ingress, DB Connect lifecycles, priority weights, and batch status logs.*
-
-### Video Demo Sandbox
-<!-- [DEMO LINK PLACEHOLDER] -->
-*Interactive recording walkthrough capturing Live sockets instantly flashing alerts upon database insertions.*
