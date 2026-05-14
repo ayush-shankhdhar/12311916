@@ -34,16 +34,16 @@ The application helps students track important campus updates such as placements
 Here are the visual captures of the CampusHub Notify dashboard and priority engine running live:
 
 ### 🖥️ Live Dashboard (All Notifications)
-![Notification Dashboard Preview](screenshots/Screenshot%202026-05-14%20at%206.24.52%E2%80%AFPM.png)
+![Notification Dashboard Preview](screenshots/dashboard.png)
 
 ### ⚡ Priority Inbox (MinHeap Engine Optimized)
-![Priority Smart Inbox Preview](screenshots/Screenshot%202026-05-14%20at%206.26.34%E2%80%AFPM.png)
+![Priority Smart Inbox Preview](screenshots/priority.png)
 
 ### 🔍 Live Toast Alerts & Category Filtering
-![Toasts & Categorized Alerts Preview](screenshots/Screenshot%202026-05-14%20at%206.25.20%E2%80%AFPM.png)
+![Toasts & Categorized Alerts Preview](screenshots/filtering.png)
 
 ### 📱 Smooth Mobile & Empty State Interface
-![Mobile Adaptive Layout Preview](screenshots/Screenshot%202026-05-14%20at%206.25.39%E2%80%AFPM.png)
+![Mobile Adaptive Layout Preview](screenshots/mobile.png)
 
 ---
 
